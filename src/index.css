@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Colores principales ─────────────────────── */
+  --color-background:        oklch(0.98 0.008 210);
+  --color-foreground:        oklch(0.18 0.025 220);
+
+  --color-primary:           oklch(0.40 0.13 225);
+  --color-primary-hover:     oklch(0.34 0.13 225);
+  --color-primary-foreground:oklch(0.99 0 0);
+
+  --color-accent:            oklch(0.52 0.15 195);
+  --color-accent-hover:      oklch(0.44 0.15 195);
+  --color-accent-light:      oklch(0.92 0.04 195);
+  --color-accent-foreground: oklch(0.99 0 0);
+
+  --color-secondary:         oklch(0.94 0.02 210);
+  --color-secondary-foreground: oklch(0.25 0.025 220);
+
+  --color-muted:             oklch(0.96 0.01 210);
+  --color-muted-foreground:  oklch(0.52 0.02 220);
+
+  --color-card:              oklch(1 0 0);
+  --color-card-foreground:   oklch(0.18 0.025 220);
+
+  --color-border:            oklch(0.88 0.02 210);
+  --color-input:             oklch(0.94 0.01 210);
+
+  --color-dark:              oklch(0.14 0.03 230);
+  --color-dark-foreground:   oklch(0.96 0.01 210);
+
+  /* ── Tipografía ──────────────────────────────── */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body:    'Plus Jakarta Sans', sans-serif;
+
+  /* ── Sombras ─────────────────────────────────── */
+  --shadow-sm:  0 1px 3px  oklch(0.18 0.025 220 / 0.08);
+  --shadow-md:  0 4px 12px oklch(0.18 0.025 220 / 0.10);
+  --shadow-lg:  0 8px 30px oklch(0.18 0.025 220 / 0.14);
+}
+
+/* ── Reset y base ────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+a { text-decoration: none; }
+
+/* ── Utilidades de botones ───────────────────────── */
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+  padding: 0.7rem 1.6rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover { background-color: var(--color-primary-hover); }
+  &:active { transform: scale(0.98); }
+}
+
+@utility btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--color-primary);
+  padding: 0.7rem 1.6rem;
+  border-radius: 9999px;
+  border: 2px solid var(--color-primary);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+}
+
+@utility btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: white;
+  color: var(--color-primary);
+  padding: 0.7rem 1.6rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover { background-color: var(--color-accent-light); }
+}
+
+@utility btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: oklch(0.52 0.19 145);
+  color: white;
+  padding: 0.7rem 1.6rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover { background-color: oklch(0.44 0.19 145); }
+}
+
+/* ── Gradientes de sección ───────────────────────── */
+@utility hero-gradient {
+  background: linear-gradient(
+    140deg,
+    oklch(0.34 0.14 230) 0%,
+    oklch(0.40 0.13 225) 40%,
+    oklch(0.46 0.15 200) 100%
+  );
+}
+
+@utility cta-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 100%
+  );
+}
+
+/* ── Card base ───────────────────────────────────── */
+@utility card {
+  background-color: var(--color-card);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-md);
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+}
