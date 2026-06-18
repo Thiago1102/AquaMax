@@ -30,7 +30,8 @@
   --color-dark-foreground:   oklch(0.96 0.01 210);
 
   /* ── Tipografía ──────────────────────────────── */
-  --font-heading: 'Outfit', sans-serif;
+  --font-family: "Poppins", sans-serif;
+  --font-heading: "Poppins", sans-serif;
   --font-body:    'Plus Jakarta Sans', sans-serif;
 
   /* ── Sombras ─────────────────────────────────── */

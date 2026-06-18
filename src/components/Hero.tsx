@@ -1,6 +1,6 @@
 import { Phone, ChevronDown } from 'lucide-react'
 
-const WA_NUMBER = '34600000000' // TODO: Reemplaza
+const WA_NUMBER = '624040047' 
 const WA_MSG    = encodeURIComponent('Hola, me gustaría solicitar un presupuesto para limpieza de aire acondicionado.')
 
 export default function Hero() {
@@ -10,7 +10,7 @@ export default function Hero() {
       {/* Patrón decorativo de fondo */}
       <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
         <div style={{
-          position: 'absolute', top: '-20%', right: '-10%',
+          position: 'absolute', top: '-10%', right: '-5%',
           width: '50vw', height: '50vw', maxWidth: '600px',
           background: 'radial-gradient(circle, oklch(0.99 0 0 / 0.06) 0%, transparent 70%)',
           borderRadius: '50%',
@@ -18,7 +18,7 @@ export default function Hero() {
         <div style={{
           position: 'absolute', bottom: '-10%', left: '-5%',
           width: '40vw', height: '40vw', maxWidth: '450px',
-          background: 'radial-gradient(circle, oklch(0.52 0.15 195 / 0.15) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, oklch(0.52 0.15 195 / 0.15) 0%, transparent 90%)',
           borderRadius: '50%',
         }} />
       </div>
@@ -46,9 +46,9 @@ export default function Hero() {
               lineHeight: 1.1, marginBottom: '1.25rem',
               letterSpacing: '-0.02em',
             }}>
-              Tu aire,<br />
-              <span style={{ color: 'oklch(0.88 0.08 195)' }}>más limpio</span>{' '}
-              y saludable
+              Mejora el,<br />
+              <span style={{ color: 'oklch(0.88 0.08 195)' }}>rendimiento y la imagen</span>{' '}
+              de tus instalaciones
             </h1>
 
             <p style={{
@@ -58,8 +58,7 @@ export default function Hero() {
               marginBottom: '2.5rem',
               maxWidth: '520px',
             }}>
-              Limpieza y desinfección profesional de aires acondicionados para particulares.
-              Mejora el aire que respiras y el rendimiento de tu equipo.
+              Limpieza profecional de placas solares, ventanas y aire acondicionado.
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
@@ -125,7 +124,7 @@ export default function Hero() {
       `}</style>
 
       {/* Teléfono flotante (móvil) */}
-      <a href="tel:+34600000000" aria-label="Llamar" className="md:hidden"
+      <a href="tel:+34624040047" aria-label="Llamar" className="md:hidden"
         style={{
           position: 'fixed', bottom: '1.5rem', right: '1.5rem', zIndex: 40,
           width: '3.5rem', height: '3.5rem', borderRadius: '50%',

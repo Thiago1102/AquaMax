@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { Phone, Mail, MessageSquare, Send } from 'lucide-react'
 
 // TODO: Reemplaza con los datos reales del negocio
-const PHONE      = '600 000 000'
-const WA_NUMBER  = '34600000000'
-const EMAIL      = 'info@aquamax.es'
+const PHONE      = '624 040 047'
+const WA_NUMBER  = '34624040047'
+const EMAIL      = 'miguelgilmorales@gmail.com'
 
 interface FormState {
   name:     string
@@ -24,7 +24,7 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const text = encodeURIComponent(
-      `Hola, me llamo ${form.name}. Estoy interesado en vuestros servicios de limpieza de aire acondicionado. Localidad: ${form.location}. Teléfono: ${form.phone}. ${form.message ? `Mensaje: ${form.message}` : ''}`
+      `Hola, me llamo ${form.name}. Estoy interesado en vuestros servicios de limpieza. Localidad: ${form.location}. Teléfono: ${form.phone}. ${form.message ? `Mensaje: ${form.message}` : ''}`
     )
     window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank')
     setSubmitted(true)

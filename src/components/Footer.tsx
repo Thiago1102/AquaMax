@@ -2,8 +2,8 @@ import { Wind, Phone, Mail, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const WA_NUMBER = '34600000000' // TODO: Reemplaza
-const PHONE     = '600 000 000'
-const EMAIL     = 'info@aquamax.es'
+const PHONE     = '624 040 047'
+const EMAIL     = 'miguelgilmorales@gmail.com'
 
 export default function Footer() {
   const year = new Date().getFullYear()
