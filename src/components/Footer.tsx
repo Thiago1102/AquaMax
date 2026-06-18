@@ -1,4 +1,4 @@
-import { Wind, Phone, Mail, MapPin } from 'lucide-react'
+import { Phone, Mail, MapPin } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const WA_NUMBER = '34600000000' // TODO: Reemplaza
@@ -16,17 +16,12 @@ export default function Footer() {
 
           {/* Marca */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '1rem' }}>
-              <div style={{
-                width: '2.25rem', height: '2.25rem',
-                background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))',
-                borderRadius: '0.6rem', display: 'flex', alignItems: 'center', justifyContent: 'center',
-              }}>
-                <Wind size={16} color="white" strokeWidth={2.5} />
-              </div>
-              <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.3rem', color: 'white' }}>
-                Aquamax
-              </span>
+            <div style={{ marginBottom: '1rem' }}>
+              <img
+                src="/logo.PNG"
+                alt="Aquamax"
+                style={{ height: '2.8rem', width: 'auto', display: 'block' }}
+              />
             </div>
             <p style={{ fontSize: '0.9rem', color: 'oklch(0.70 0.02 220)', lineHeight: 1.7, maxWidth: '260px' }}>
               Limpieza y desinfección profesional de aires acondicionados para particulares en el Corredor del Henares.

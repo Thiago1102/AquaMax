@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Wind } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 
 
 const WA_NUMBER = '34624040047'
@@ -56,18 +56,12 @@ export default function Header() {
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '4.5rem' }}>
 
           {/* Logo */}
-          <a href="#inicio" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', textDecoration: 'none' }}>
-            <div style={{
-              width: '2.25rem', height: '2.25rem',
-              background: 'linear-gradient(135deg, var(--color-primary), var(--color-accent))',
-              borderRadius: '0.6rem',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}>
-              <Wind size={16} color="white" strokeWidth={2.5} />
-            </div>
-            <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1.35rem', color: textColor, transition: 'color 0.3s' }}>
-              Aquamax
-            </span>
+          <a href="#inicio" style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}>
+            <img
+              src="/logo.PNG"
+              alt="Aquamax"
+              style={{ height: '3.8rem', width: 'auto', display: 'block' }}
+            />
           </a>
 
           {/* Nav escritorio */}
