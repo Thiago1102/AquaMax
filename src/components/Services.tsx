@@ -1,13 +1,13 @@
 const steps = [
   {
-    title: 'Limpieza de filtros',
-    desc: 'Desmontamos y lavamos a fondo todos los filtros para eliminar polvo y suciedad acumulada.',
+    title: 'Limpieza de filtros y baterías',
+    desc: 'Desmontamos y limpiamos a fondo todos los filtros y baterías para eliminar polvo y suciedad acumulada.',
     image: '/limpieza-de-aire-ac.png',
     imageAlt: 'Técnico limpiando un aire acondicionado',
     imagePosition: '60% center',
   },
   {
-    title: 'Limpieza de evaporador',
+    title: 'Limpieza de placas solares',
     desc: 'Utilizamos equipos y productos específicos que no dañan tus paneles solares.',
     image: '/limpieza-de-paneles-solares.jpg',
     imageAlt: 'Limpieza profesional de paneles solares',
