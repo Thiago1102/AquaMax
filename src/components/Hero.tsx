@@ -50,7 +50,7 @@ export default function Hero() {
               transform: 'translateY(22px)',
               animation: 'heroTitleReveal 620ms cubic-bezier(0.22, 1, 0.36, 1) 70ms forwards',
             }}>
-              Mejora el,<br />
+              Mejora el<br />
               <span style={{ color: 'rgb(42, 80, 248)' }}>rendimiento y la imagen</span>{' '}
               de tus instalaciones
             </h1>
