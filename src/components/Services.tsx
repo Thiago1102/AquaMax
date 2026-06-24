@@ -1,7 +1,7 @@
 const steps = [
   {
     title: 'Limpieza de filtros y baterías',
-    desc: 'Desmontamos y limpiamos a fondo todos los filtros y baterías para eliminar polvo y suciedad acumulada.',
+    desc: 'Limpiamos y desinfectamos a fondo todos los filtros y baterías para eliminar polvo y suciedad acumulada.',
     image: '/limpieza-de-aire-ac.png',
     imageAlt: 'Técnico limpiando un aire acondicionado',
     imagePosition: '55% center',
