@@ -4,7 +4,7 @@ const steps = [
     desc: 'Desmontamos y limpiamos a fondo todos los filtros y baterías para eliminar polvo y suciedad acumulada.',
     image: '/limpieza-de-aire-ac.png',
     imageAlt: 'Técnico limpiando un aire acondicionado',
-    imagePosition: '60% center',
+    imagePosition: '55% center',
   },
   {
     title: 'Limpieza de placas solares',
