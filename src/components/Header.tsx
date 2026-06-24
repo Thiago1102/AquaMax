@@ -37,7 +37,7 @@ export default function Header() {
 
   const showSolidHeader = scrolled || mobileOpen
   const textColor    = showSolidHeader ? 'var(--color-foreground)'      : 'white'
-  const mutedColor   = showSolidHeader ? 'var(--color-muted-foreground)': 'rgba(255,255,255,0.80)'
+  const mutedColor   = showSolidHeader ? 'var(--color-muted-foreground)': 'rgb(2, 26, 240)'
 
   return (
     <header

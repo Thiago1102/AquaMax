@@ -14,11 +14,12 @@ export default function Hero() {
       className="hero-bg-pos"
       style={{
         minHeight: '100vh',
+        height: '100dvh',
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
         ['--hero-bg-image' as any]: "url('/imagen-hero-mobile.png')",
-        backgroundImage: 'linear-gradient(rgba(235, 235, 235, 0.77), rgba(9, 36, 62, 0.64)), var(--hero-bg-image)',
+        backgroundImage: 'linear-gradient(rgba(235, 235, 235, 0.62), rgba(9, 36, 62, 0.64)), var(--hero-bg-image)',
         backgroundRepeat: 'no-repeat',
       }}
     >
@@ -113,9 +114,19 @@ export default function Hero() {
           50% { transform: translateX(-50%) translateY(30px); }
         }
         .hero-bg-pos {
-          background-position: center center;
-          background-size: contain;
+          background-position: center 36%;
+          background-size: cover;
           background-repeat: no-repeat;
+        }
+        @media (max-width: 420px) {
+          .hero-bg-pos {
+            background-position: 58% center;
+          }
+        }
+        @media (max-aspect-ratio: 9/16) {
+          .hero-bg-pos {
+            background-position: center 28%;
+          }
         }
         @media (min-width: 932px) {
           .hero-bg-pos {
