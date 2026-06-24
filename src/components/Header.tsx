@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
-
-
-const WA_NUMBER = '34624040047'
-const WA_MSG    = encodeURIComponent('Hola, me gustaría solicitar información sobre limpieza de aire acondicionado.')
+import { Menu, MessageCircle, X } from 'lucide-react'
+import { CONTACT_DERIVED, WA_MESSAGES } from '../config/contact'
 
 const navLinks = [
   { label: 'Servicios',   href: '#servicios' },
   { label: 'Beneficios',  href: '#beneficios' },
-  { label: 'Zona',        href: '#zona' },
+  { label: 'Cobertura',   href: '#zona' },
   { label: 'Contacto',    href: '#contacto' },
 ]
 
@@ -69,7 +66,7 @@ export default function Header() {
             <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
               {navLinks.map(l => (
                 <a key={l.href} href={l.href}
-                  style={{ fontSize: '0.9rem', fontWeight: 500, color: mutedColor, transition: 'color 0.2s' }}
+                  style={{ fontSize: '1.05rem', fontWeight: 600, color: mutedColor, transition: 'color 0.2s' }}
                   onMouseOver={e => (e.currentTarget.style.color = scrolled ? 'var(--color-primary)' : 'white')}
                   onMouseOut={e  => (e.currentTarget.style.color = mutedColor)}
                 >
@@ -82,7 +79,7 @@ export default function Header() {
           {/* CTA escritorio */}
           {!isMobile && (
             <div>
-              <a href={`https://wa.me/${WA_NUMBER}?text=${WA_MSG}`} target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <a href={`${CONTACT_DERIVED.waBaseUrl}?text=${WA_MESSAGES.generalInfo}`} target="_blank" rel="noopener noreferrer" className="btn-primary">
                 Pedir presupuesto
               </a>
             </div>
@@ -108,14 +105,15 @@ export default function Header() {
             {navLinks.map(l => (
               <a key={l.href} href={l.href}
                 onClick={() => setMobileOpen(false)}
-                style={{ padding: '0.75rem 1rem', fontSize: '1rem', fontWeight: 500, color: 'var(--color-foreground)', borderRadius: '0.5rem', display: 'block' }}
+                style={{ padding: '0.75rem 1rem', fontSize: '1.12rem', fontWeight: 600, color: 'var(--color-foreground)', borderRadius: '0.5rem', display: 'block' }}
               >
                 {l.label}
               </a>
             ))}
-            <a href={`https://wa.me/${WA_NUMBER}?text=${WA_MSG}`} target="_blank" rel="noopener noreferrer"
+            <a href={`${CONTACT_DERIVED.waBaseUrl}?text=${WA_MESSAGES.generalInfo}`} target="_blank" rel="noopener noreferrer"
               className="btn-whatsapp" style={{ marginTop: '0.75rem', justifyContent: 'center' }}>
-              💬 Pedir presupuesto
+              <MessageCircle size={18} />
+              Pedir presupuesto
             </a>
           </nav>
         </div>

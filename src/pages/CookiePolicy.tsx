@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
+import { CONTACT } from '../config/contact'
 
 export default function CookiePolicy() {
   return (
@@ -13,7 +14,7 @@ export default function CookiePolicy() {
           Política de Cookies
         </h1>
         <p style={{ color: 'var(--color-muted-foreground)', marginBottom: '3rem', fontSize: '0.9rem' }}>
-          Última actualización: junio de 2025
+          Última actualización: junio de 2026
         </p>
 
         <div style={{ color: 'var(--color-foreground)', lineHeight: 1.8 }}>
@@ -32,7 +33,7 @@ export default function CookiePolicy() {
             },
             {
               title: 'Más información',
-              text: 'Si tienes dudas sobre nuestra política de cookies, puedes contactarnos en info@aquamax.es.',
+              text: `Si tienes dudas sobre nuestra política de cookies, puedes contactarnos en ${CONTACT.email}.`,
             },
           ].map(section => (
             <div key={section.title} style={{ marginBottom: '2rem' }}>

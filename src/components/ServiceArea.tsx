@@ -33,9 +33,6 @@ export default function ServiceArea() {
             <p style={{ color: 'var(--color-muted-foreground)', lineHeight: 1.8, marginBottom: '1.25rem' }}>
               Somos un negocio local y nos desplazamos a tu domicilio en las principales localidades del Corredor del Henares. Si no ves tu localidad en el listado, consúltanos igualmente: podemos llegar a otras zonas cercanas.
             </p>
-            <p style={{ color: 'var(--color-muted-foreground)', lineHeight: 1.8, marginBottom: '2rem' }}>
-              El desplazamiento es gratuito dentro de nuestra zona habitual de trabajo.
-            </p>
             <a href="#contacto" className="btn-primary">
               Consultar mi zona
             </a>

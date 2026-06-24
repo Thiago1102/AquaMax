@@ -1,33 +1,32 @@
-import { Phone, ChevronDown } from 'lucide-react'
+import { BadgeCheck, ChevronDown, House, MapPin, MessageCircle, Phone, ShieldCheck } from 'lucide-react'
+import { CONTACT_DERIVED, WA_MESSAGES } from '../config/contact'
 
-const WA_NUMBER = '624040047' 
-const WA_MSG    = encodeURIComponent('Hola, me gustaría solicitar un presupuesto para limpieza de aire acondicionado.')
+const trustItems = [
+  { icon: BadgeCheck, text: 'Presupuesto sin compromiso' },
+  { icon: House, text: 'Servicio en tu domicilio' },
+  { icon: ShieldCheck, text: 'Desinfección homologada' },
+]
 
 export default function Hero() {
   return (
-    <section id="inicio" className="hero-gradient" style={{ minHeight: '100vh', position: 'relative', display: 'flex', alignItems: 'center' }}>
-
-      {/* Patrón decorativo de fondo */}
-      <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }}>
-        <div style={{
-          position: 'absolute', top: '-10%', right: '-5%',
-          width: '50vw', height: '50vw', maxWidth: '600px',
-          background: 'radial-gradient(circle, oklch(0.99 0 0 / 0.06) 0%, transparent 70%)',
-          borderRadius: '50%',
-        }} />
-        <div style={{
-          position: 'absolute', bottom: '-10%', left: '-5%',
-          width: '40vw', height: '40vw', maxWidth: '450px',
-          background: 'radial-gradient(circle, oklch(0.52 0.15 195 / 0.15) 0%, transparent 90%)',
-          borderRadius: '50%',
-        }} />
-      </div>
-
-      <div style={{ maxWidth: '72rem', margin: '0 auto', padding: '8rem 1.5rem 5rem', width: '100%', position: 'relative', zIndex: 1 }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '3rem', alignItems: 'center' }} className="lg:grid-cols-2-placeholder">
+    <section
+      id="inicio"
+      className="hero-bg-pos"
+      style={{
+        minHeight: '100vh',
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'center',
+        ['--hero-bg-image' as any]: "url('/imagen-hero-mobile.png')",
+        backgroundImage: 'linear-gradient(rgba(235, 235, 235, 0.77), rgba(9, 36, 62, 0.64)), var(--hero-bg-image)',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
+      <div style={{ maxWidth: '92rem', margin: '0 auto', padding: '8rem 1.5rem 5rem', width: '100%', position: 'relative', zIndex: 1 }}>
+        <div style={{ display: 'grid', gap: '3rem', alignItems: 'center' }}>
 
           {/* Contenido */}
-          <div style={{ maxWidth: '640px' }}>
+          <div style={{ maxWidth: '700px' }}>
             {/* Etiqueta zona */}
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
@@ -36,7 +35,8 @@ export default function Hero() {
               fontSize: '0.85rem', fontWeight: 500, marginBottom: '1.5rem',
               border: '1px solid oklch(0.99 0 0 / 0.2)',
             }}>
-              📍 Corredor del Henares
+              <MapPin size={16} strokeWidth={2.2} />
+              Corredor del Henares
             </div>
 
             <h1 style={{
@@ -45,9 +45,12 @@ export default function Hero() {
               fontWeight: 800, color: 'white',
               lineHeight: 1.1, marginBottom: '1.25rem',
               letterSpacing: '-0.02em',
+              opacity: 0,
+              transform: 'translateY(22px)',
+              animation: 'heroTitleReveal 620ms cubic-bezier(0.22, 1, 0.36, 1) 70ms forwards',
             }}>
               Mejora el,<br />
-              <span style={{ color: 'oklch(0.88 0.08 195)' }}>rendimiento y la imagen</span>{' '}
+              <span style={{ color: 'rgb(42, 80, 248)' }}>rendimiento y la imagen</span>{' '}
               de tus instalaciones
             </h1>
 
@@ -58,12 +61,13 @@ export default function Hero() {
               marginBottom: '2.5rem',
               maxWidth: '520px',
             }}>
-              Limpieza profecional de placas solares, ventanas y aire acondicionado.
+              Limpieza profesional de placas solares, ventanas y aire acondicionado.
             </p>
 
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
-              <a href={`https://wa.me/${WA_NUMBER}?text=${WA_MSG}`} target="_blank" rel="noopener noreferrer" className="btn-white">
-                💬 Pedir presupuesto gratis
+              <a href={`${CONTACT_DERIVED.waBaseUrl}?text=${WA_MESSAGES.quoteRequest}`} target="_blank" rel="noopener noreferrer" className="btn-white">
+                <MessageCircle size={18} />
+                Pedir presupuesto gratis
               </a>
               <a href="#servicios" className="btn-outline" style={{ borderColor: 'rgba(255,255,255,0.5)', color: 'white' }}>
                 Ver cómo funciona
@@ -72,36 +76,15 @@ export default function Hero() {
 
             {/* Datos de confianza */}
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginTop: '3rem' }}>
-              {[
-                { icon: '✅', text: 'Presupuesto sin compromiso' },
-                { icon: '🏠', text: 'Servicio en tu domicilio' },
-                { icon: '🔬', text: 'Desinfección homologada' },
-              ].map(item => (
+              {trustItems.map(item => (
                 <div key={item.text} style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'rgba(255,255,255,0.80)', fontSize: '0.875rem' }}>
-                  <span>{item.icon}</span>
+                  <item.icon size={16} strokeWidth={2.2} />
                   <span>{item.text}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Placeholder imagen hero */}
-          <div style={{
-            background: 'oklch(0.99 0 0 / 0.08)',
-            border: '2px dashed oklch(0.99 0 0 / 0.25)',
-            borderRadius: '1.5rem',
-            aspectRatio: '4/3',
-            display: 'flex', flexDirection: 'column',
-            alignItems: 'center', justifyContent: 'center',
-            color: 'rgba(255,255,255,0.55)', gap: '0.75rem',
-            padding: '2rem', textAlign: 'center',
-          }} className="hidden lg:flex">
-            <div style={{ fontSize: '4rem' }}>🌬️</div>
-            <p style={{ fontSize: '0.9rem', fontWeight: 500, lineHeight: 1.5 }}>
-              Espacio reservado<br />para imagen del negocio
-            </p>
-            <p style={{ fontSize: '0.8rem', opacity: 0.7 }}>Reemplazar con foto real</p>
-          </div>
         </div>
       </div>
 
@@ -115,16 +98,37 @@ export default function Hero() {
       </a>
 
       <style>{`
+        @keyframes heroTitleReveal {
+          from {
+            opacity: 0;
+            transform: translateY(25px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
         @keyframes bounce {
           0%, 100% { transform: translateX(-50%) translateY(0); }
-          50% { transform: translateX(-50%) translateY(8px); }
+          50% { transform: translateX(-50%) translateY(30px); }
         }
-        .hidden { display: none; }
-        @media (min-width: 1024px) { .hidden.lg\\:flex { display: flex; } }
+        .hero-bg-pos {
+          background-position: center center;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+        @media (min-width: 932px) {
+          .hero-bg-pos {
+            --hero-bg-image: url('/imagen-hero-1.png');
+            background-image: linear-gradient(rgba(146, 146, 146, 0.49), rgba(9, 36, 62, 0.64)), url('/imagen-hero-1.png');
+            background-position: center 88%;
+            background-size: cover;
+          }
+        }
       `}</style>
 
       {/* Teléfono flotante (móvil) */}
-      <a href="tel:+34624040047" aria-label="Llamar" className="md:hidden"
+      <a href={`tel:+34${CONTACT_DERIVED.phoneDigits}`} aria-label="Llamar" className="md:hidden"
         style={{
           position: 'fixed', bottom: '1.5rem', right: '1.5rem', zIndex: 40,
           width: '3.5rem', height: '3.5rem', borderRadius: '50%',

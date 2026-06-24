@@ -1,10 +1,7 @@
 import { useState } from 'react'
-import { Phone, Mail, MessageSquare, Send } from 'lucide-react'
-
-// TODO: Reemplaza con los datos reales del negocio
-const PHONE      = '624 040 047'
-const WA_NUMBER  = '34624040047'
-const EMAIL      = 'miguelgilmorales@gmail.com'
+import { Clock3, Mail, MessageSquare, PartyPopper, Phone, Send } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { CONTACT, CONTACT_DERIVED } from '../config/contact'
 
 interface FormState {
   name:     string
@@ -26,7 +23,7 @@ export default function Contact() {
     const text = encodeURIComponent(
       `Hola, me llamo ${form.name}. Estoy interesado en vuestros servicios de limpieza. Localidad: ${form.location}. Teléfono: ${form.phone}. ${form.message ? `Mensaje: ${form.message}` : ''}`
     )
-    window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank')
+    window.open(`${CONTACT_DERIVED.waBaseUrl}?text=${text}`, '_blank')
     setSubmitted(true)
   }
 
@@ -65,9 +62,9 @@ export default function Contact() {
           {/* Info de contacto */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             {[
-              { icon: Phone,        label: 'Teléfono',  value: PHONE,  href: `tel:+34${PHONE.replace(/\s/g,'')}`, cta: 'Llamar ahora' },
-              { icon: MessageSquare,label: 'WhatsApp',  value: PHONE,  href: `https://wa.me/${WA_NUMBER}`,          cta: 'Escribir por WhatsApp' },
-              { icon: Mail,         label: 'Email',     value: EMAIL,  href: `mailto:${EMAIL}`,                     cta: 'Enviar email' },
+              { icon: Phone,        label: 'Teléfono',  value: CONTACT.phoneDisplay,  href: `tel:+34${CONTACT_DERIVED.phoneDigits}`, cta: 'Llamar ahora' },
+              { icon: MessageSquare,label: 'WhatsApp',  value: CONTACT.phoneDisplay,  href: CONTACT_DERIVED.waBaseUrl,               cta: 'Escribir por WhatsApp' },
+              { icon: Mail,         label: 'Email',     value: CONTACT.email,         href: `mailto:${CONTACT.email}`,                cta: 'Enviar email' },
             ].map(item => (
               <a key={item.label} href={item.href} target={item.label !== 'Teléfono' ? '_blank' : undefined}
                 rel="noopener noreferrer"
@@ -106,10 +103,11 @@ export default function Contact() {
               border: '1px solid oklch(0.52 0.15 195 / 0.2)',
               fontSize: '0.9rem', color: 'oklch(0.35 0.1 200)', lineHeight: 1.6,
             }}>
-              🕐 <strong>Horario de atención:</strong><br />
-              Lunes a viernes: 8:00 – 20:00<br />
-              Sábados: 9:00 – 14:00
-            </div>
+              <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}>
+                <Clock3 size={16} strokeWidth={2.2} />
+                <strong>Horario de atención:</strong>
+              </span><br />
+              Lunes a viernes: 8:00 – 17:00<br /></div>
           </div>
 
           {/* Formulario */}
@@ -119,12 +117,14 @@ export default function Contact() {
               border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-md)',
               textAlign: 'center',
             }}>
-              <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🎉</div>
+              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem', color: 'var(--color-accent)' }}>
+                <PartyPopper size={40} strokeWidth={2.1} />
+              </div>
               <h3 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.4rem', fontWeight: 700, color: 'var(--color-foreground)', marginBottom: '0.75rem' }}>
                 ¡Mensaje enviado!
               </h3>
               <p style={{ color: 'var(--color-muted-foreground)', lineHeight: 1.7 }}>
-                Hemos abierto WhatsApp con tu mensaje. Si no se abrió automáticamente, escríbenos al {PHONE}.
+                Hemos abierto WhatsApp con tu mensaje. Si no se abrió automáticamente, escríbenos al {CONTACT.phoneDisplay}.
               </p>
             </div>
           ) : (
@@ -192,6 +192,14 @@ export default function Contact() {
                 <Send size={18} />
                 Enviar por WhatsApp
               </button>
+
+              <p style={{ fontSize: '0.825rem', color: 'var(--color-muted-foreground)', textAlign: 'center', lineHeight: 1.5 }}>
+                Al enviar, aceptas nuestra{' '}
+                <Link to="/privacidad" style={{ color: 'var(--color-primary)', fontWeight: 600 }}>
+                  Política de privacidad
+                </Link>
+                .
+              </p>
 
               <p style={{ fontSize: '0.8rem', color: 'var(--color-muted-foreground)', textAlign: 'center', lineHeight: 1.5 }}>
                 Al enviar, se abrirá WhatsApp con tu mensaje pre-redactado.

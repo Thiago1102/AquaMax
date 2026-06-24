@@ -1,9 +1,6 @@
-import { Phone, Mail, MapPin } from 'lucide-react'
+import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react'
 import { Link } from 'react-router-dom'
-
-const WA_NUMBER = '34600000000' // TODO: Reemplaza
-const PHONE     = '624 040 047'
-const EMAIL     = 'miguelgilmorales@gmail.com'
+import { CONTACT, CONTACT_DERIVED } from '../config/contact'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -24,7 +21,7 @@ export default function Footer() {
               />
             </div>
             <p style={{ fontSize: '0.9rem', color: 'oklch(0.70 0.02 220)', lineHeight: 1.7, maxWidth: '260px' }}>
-              Limpieza y desinfección profesional de aires acondicionados para particulares en el Corredor del Henares.
+              Limpieza profesional de placas solares, ventanas y aire acondicionado.
             </p>
           </div>
 
@@ -34,17 +31,17 @@ export default function Footer() {
               Contacto
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-              <a href={`tel:+34${PHONE.replace(/\s/g,'')}`}
+              <a href={`tel:+34${CONTACT_DERIVED.phoneDigits}`}
                 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'oklch(0.70 0.02 220)', fontSize: '0.9rem', textDecoration: 'none' }}>
-                <Phone size={14} /> {PHONE}
+                <Phone size={14} /> {CONTACT.phoneDisplay}
               </a>
-              <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer"
+              <a href={CONTACT_DERIVED.waBaseUrl} target="_blank" rel="noopener noreferrer"
                 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'oklch(0.70 0.02 220)', fontSize: '0.9rem', textDecoration: 'none' }}>
-                💬 WhatsApp
+                <MessageCircle size={14} /> WhatsApp
               </a>
-              <a href={`mailto:${EMAIL}`}
+              <a href={`mailto:${CONTACT.email}`}
                 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'oklch(0.70 0.02 220)', fontSize: '0.9rem', textDecoration: 'none' }}>
-                <Mail size={14} /> {EMAIL}
+                <Mail size={14} /> {CONTACT.email}
               </a>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'oklch(0.70 0.02 220)', fontSize: '0.9rem' }}>
                 <MapPin size={14} /> Corredor del Henares, Madrid

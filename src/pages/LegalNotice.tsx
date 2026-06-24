@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
+import { CONTACT } from '../config/contact'
 
 export default function LegalNotice() {
   return (
@@ -13,14 +14,14 @@ export default function LegalNotice() {
           Aviso Legal
         </h1>
         <p style={{ color: 'var(--color-muted-foreground)', marginBottom: '3rem', fontSize: '0.9rem' }}>
-          Última actualización: junio de 2025
+          Última actualización: junio de 2026
         </p>
 
         <div style={{ color: 'var(--color-foreground)', lineHeight: 1.8 }}>
           {[
             {
               title: '1. Titular del sitio web',
-              text: 'Aquamax. Corredor del Henares, Comunidad de Madrid. Email de contacto: info@aquamax.es.',
+              text: `Aquamax. Corredor del Henares, Comunidad de Madrid. Email de contacto: ${CONTACT.email}.`,
             },
             {
               title: '2. Objeto y ámbito de aplicación',

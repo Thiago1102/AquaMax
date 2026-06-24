@@ -4,18 +4,21 @@ const steps = [
     desc: 'Desmontamos y lavamos a fondo todos los filtros para eliminar polvo y suciedad acumulada.',
     image: '/limpieza-de-aire-ac.png',
     imageAlt: 'Técnico limpiando un aire acondicionado',
+    imagePosition: '60% center',
   },
   {
     title: 'Limpieza de evaporador',
     desc: 'Utilizamos equipos y productos específicos que no dañan tus paneles solares.',
     image: '/limpieza-de-paneles-solares.jpg',
     imageAlt: 'Limpieza profesional de paneles solares',
+    imagePosition: '70% center',
   },
   {
     title: 'Seguridad y confianza',
     desc: 'Trabajamos con equipos profesionales y medidas de seguridad para cualquier tipo de instalación en altura.',
     image: '/limpieza-de-persianas-.jpg',
     imageAlt: 'Profesional limpiando una ventana en altura',
+    imagePosition: '70% center',
   },
 ]
 
@@ -59,15 +62,10 @@ export default function Services() {
 
           {/* Pasos del proceso */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
-            {steps.map((step, i) => (
-              <div key={i} style={{
-                display: 'grid', gridTemplateColumns: '1.15fr 1fr', alignItems: 'stretch',
-                borderRadius: '0.9rem', overflow: 'hidden',
-                boxShadow: '0 16px 40px rgba(11, 95, 139, 0.12)',
-                background: 'white',
-                minHeight: '7.2rem',
-              }}>
+            {steps.map((step, i) => {
+              const reversed = i % 2 !== 0
 
+              const textBlock = (
                 <div style={{ background: 'var(--color-primary-hover)', color: 'white', padding: '1rem 1.1rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                   <p style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '0.98rem', marginBottom: '0.45rem', lineHeight: 1.2 }}>
                     {step.title}
@@ -76,16 +74,30 @@ export default function Services() {
                     {step.desc}
                   </p>
                 </div>
+              )
 
-                <div style={{ minHeight: '100%', background: '#eaf4f8' }}>
+              const imageBlock = (
+                <div style={{ position: 'relative', minHeight: '7.2rem', height: '100%', background: '#eaf4f8' }}>
                   <img
                     src={step.image}
                     alt={step.imageAlt}
-                    style={{ display: 'block', width: '100%', height: '100%', minHeight: '7.2rem', objectFit: 'cover' }}
+                    style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', objectPosition: step.imagePosition }}
                   />
                 </div>
-              </div>
-            ))}
+              )
+
+              return (
+                <div key={i} style={{
+                  display: 'grid', gridTemplateColumns: '1.15fr 1fr', alignItems: 'stretch',
+                  borderRadius: '0.9rem', overflow: 'hidden',
+                  boxShadow: '0 16px 40px rgba(11, 95, 139, 0.12)',
+                  background: 'white',
+                  minHeight: '7.2rem',
+                }}>
+                  {reversed ? <>{imageBlock}{textBlock}</> : <>{textBlock}{imageBlock}</>}
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

@@ -171,3 +171,45 @@ a { text-decoration: none; }
   padding: 2rem;
   border: 1px solid var(--color-border);
 }
+
+/* ── Animaciones por scroll ─────────────────────── */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(4px);
+  transition:
+    opacity 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 520ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-on-scroll.reveal-left {
+  transform: translateX(-36px) rotate(-0.5deg);
+}
+
+.reveal-on-scroll.reveal-zoom {
+  transform: scale(0.94) translateY(14px);
+  filter: blur(3px);
+}
+
+.reveal-on-scroll.reveal-up {
+  transform: translateY(34px);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate(0, 0) rotate(0) scale(1);
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll,
+  .reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}

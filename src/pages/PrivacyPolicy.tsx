@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
+import { CONTACT } from '../config/contact'
 
 export default function PrivacyPolicy() {
   return (
@@ -13,14 +14,14 @@ export default function PrivacyPolicy() {
           Política de Privacidad
         </h1>
         <p style={{ color: 'var(--color-muted-foreground)', marginBottom: '3rem', fontSize: '0.9rem' }}>
-          Última actualización: junio de 2025
+          Última actualización: junio de 2026
         </p>
 
         <div style={{ color: 'var(--color-foreground)', lineHeight: 1.8 }}>
           {[
             {
               title: '1. Responsable del tratamiento',
-              text: 'Aquamax, con domicilio en el Corredor del Henares (Madrid) y dirección de correo electrónico info@aquamax.es, es el responsable del tratamiento de los datos personales recogidos a través de este sitio web.',
+              text: `Aquamax, con domicilio en el Corredor del Henares (Madrid) y dirección de correo electrónico ${CONTACT.email}, es el responsable del tratamiento de los datos personales recogidos a través de este sitio web.`,
             },
             {
               title: '2. Datos que recogemos',
@@ -40,7 +41,7 @@ export default function PrivacyPolicy() {
             },
             {
               title: '6. Tus derechos',
-              text: 'Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad enviándonos un email a info@aquamax.es. También puedes presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).',
+              text: `Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad enviándonos un email a ${CONTACT.email}. También puedes presentar una reclamación ante la Agencia Española de Protección de Datos (www.aepd.es).`,
             },
           ].map(section => (
             <div key={section.title} style={{ marginBottom: '2rem' }}>
