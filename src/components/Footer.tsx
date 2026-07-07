@@ -71,10 +71,25 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div style={{ borderTop: '1px solid oklch(0.28 0.02 225)', paddingTop: '1.5rem', textAlign: 'center' }}>
-          <p style={{ fontSize: '0.825rem', color: 'oklch(0.55 0.02 220)' }}>
-            © {year} Aquamax. Todos los derechos reservados. · Corredor del Henares, Madrid.
-          </p>
+        <div style={{ borderTop: '1px solid oklch(0.28 0.02 225)', paddingTop: '1.5rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', textAlign: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.25rem' }}>
+              <p style={{ fontSize: '0.825rem', color: 'oklch(0.55 0.02 220)' }}>
+                © {year} Aquamax. Todos los derechos reservados. · Corredor del Henares, Madrid.
+              </p>
+              <p style={{ fontSize: '0.78rem', color: 'oklch(0.62 0.02 220)' }}>
+                Desarrollado por
+              </p>
+            </div>
+
+            <a href="#inicio" aria-label="YADA - Desarrollado por" style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}>
+              <img
+                src="/YADA_complete.svg"
+                alt="YADA"
+                style={{ height: '3.4rem', width: 'auto', display: 'block', maxWidth: '100%' }}
+              />
+            </a>
+          </div>
         </div>
       </div>
 
